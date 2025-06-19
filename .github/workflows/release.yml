@@ -1,0 +1,30 @@
+# This workflow will release the golang project.
+
+name: Release
+on:
+  release:
+    types: [created]
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.24.3'
+    - name: Install golangci-lint
+      uses: golangci/golangci-lint-action@v8
+      with:
+        version: latest
+    - name: Run tests
+      run: go test -v ./...
+    - name: Build binary
+      run: |
+        GOOS=linux GOARCH=amd64 go build -o go-ci-cd-project
+    - name: Upload Release Assets
+      uses: softprops/action-gh-release@v2
+      with:
+        files: |
+          go-ci-cd-project
