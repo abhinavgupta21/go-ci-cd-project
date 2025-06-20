@@ -45,26 +45,26 @@ The API is built using the Gin web framework and uses GORM for ORM with database
 
 ## Project Structure
 
+```
+
 ├── .github/
 │   └── workflows/
-│       ├── ci.yml                    # CI workflow for building Go project
-│       └── release.yml               # Workflow for manual release deployment
+│       ├── ci.yml           # CI workflow for building Go project
+│       └── release.yml      # Workflow for manual release deployment
 ├── config/
-│   └── config.go                     # Load and initialize environment variables
+│   └── config.go            # Load and initialize environment variables
 ├── controllers/
-│   └── book_controller.go            # Controller functions for CRUD operations
+│   └── book_controller.go   # Controller functions for CRUD operations
 ├── db/
-│   └── connection.go                 # DB connection and schema migration logic
-|   └── migration.go 
+│   └── connection.go        # DB connection and schema migration logic
 ├── models/
-│   └── book.go                       # Book model definition
+│   └── model.go             # Book model definition
 ├── routes/
-│   └── routes.go                     # API routing definitions
-├── .env                              # Environment variable definitions
+│   └── routes.go            # API routing definitions
+├── .env                     # Environment variable definitions
 ├── book-api.postman_collection.json  # Postman collection for testing API
-└── main.go                           # Application entry point and server setup
-└── go.mod                            # Application direct and indirect dependencies 
-\`\`\`
+└── main.go                  # Application entry point and server setup
+```
 
 ---
 
@@ -89,26 +89,26 @@ The project uses environment variables for configuration, loaded from \`.env\` f
 
 1. **Clone the repository**
 
-   \`\`\`bash
+   ```
    git clone git@github.com:abhinavgupta21/go-ci-cd-project.git
    cd go-ci-cd-project
-   \`\`\`
+   ```
 
 2. **Set up \`.env\` file**
 
-   Create a \`.env\` file in the root folder with necessary environment variables.
+   Created a `.env` file in the root folder with the necessary environment variables.
 
 3. **Install dependencies**
 
-   \`\`\`bash
+   ```
    go mod tidy
-   \`\`\`
+   ```
 
 4. **Run the API server**
 
-   \`\`\`bash
+   ```
    go run main.go
-   \`\`\`
+   ````
 
    The API server will start on the configured port (default from \`.env\`).
 
@@ -136,7 +136,7 @@ The project uses environment variables for configuration, loaded from \`.env\` f
 
 ## Postman Collection
 
-Import the \`book-api.postman_collection.json\` file in Postman to quickly test the API endpoints.
+Import the `book-api.postman_collection.json` file in Postman to quickly test the API endpoints.
 
 ---
 
