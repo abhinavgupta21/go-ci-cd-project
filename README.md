@@ -38,8 +38,7 @@ The API is built using the Gin web framework and uses GORM for ORM with database
 - Create, Read, Update, and Delete (CRUD) operations for books  
 - Validation for required fields (\`Title\` and \`Price\`)  
 - Database schema migrations and updates with GORM  
-- Graceful shutdown with proper closing of database connections  
-- Environment-based configuration  
+- Graceful shutdown with proper closing of database connections
 
 ---
 
