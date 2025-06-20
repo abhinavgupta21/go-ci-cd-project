@@ -72,16 +72,16 @@ The API is built using the Gin web framework and uses GORM for ORM with database
 
 The project uses environment variables for configuration, loaded from \`.env\` file:
 
-| Variable         | Description                |
-|------------------|----------------------------|
-| \`DB_HOST\`      | Database host              |
-| \`DB_PORT\`      | Database port              |
-| \`DB_USER\`      | Database username          |
-| \`DB_PASSWORD\`  | Database password          |
-| \`DB_NAME\`      | Database name              |
-| \`SERVER_PORT\`  | Port where the API runs    |
+| Variable         | Description              |
+|------------------|--------------------------|
+| `DB_HOST`      | Database host              |
+| `DB_PORT`      | Database port              |
+| `DB_USER`      | Database username          |
+| `DB_PASSWORD`  | Database password          |
+| `DB_NAME`      | Database name              |
+| `SERVER_PORT`  | Port where the API runs    |
 
-> **Note:** Add other variables as per your database and environment setup.
+> **Note:** Add more variables as per your requirement and environment setup.
 
 ---
 
@@ -124,13 +124,13 @@ The project uses environment variables for configuration, loaded from \`.env\` f
 
 ## API Endpoints
 
-| Method | Endpoint         | Description           |
-|--------|------------------|-----------------------|
-| POST   | \`/books\`       | Create a new book     |
-| GET    | \`/books\`       | Get all books         |
-| GET    | \`/books/:id\`   | Get a book by ID      |
-| PUT    | \`/books/:id\`   | Update a book by ID   |
-| DELETE | \`/books/:id\`   | Delete a book by ID   |
+| Method | Endpoint       | Description           |
+|--------|----------------|-----------------------|
+| POST   | `/books`       | Create a new book     |
+| GET    | `/books`       | Get all books         |
+| GET    | `/books/:id`   | Get a book by ID      |
+| PUT    | `/books/:id`   | Update a book by ID   |
+| DELETE | `/books/:id`   | Delete a book by ID   |
 
 ---
 
