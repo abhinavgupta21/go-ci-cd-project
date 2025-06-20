@@ -9,7 +9,8 @@ A simple RESTful API for managing books, built with Go, Gin framework, and GORM 
 - [Overview](#overview)  
 - [Features](#features)  
 - [Project Structure](#project-structure)  
-- [Environment Variables](#environment-variables)  
+- [Environment Variables](#environment-variables)
+- [Pre-requisite](#Pre-requisite)  
 - [Installation](#installation)  
 - [Usage](#usage)  
 - [API Endpoints](#api-endpoints)  
@@ -83,6 +84,10 @@ The project uses environment variables for configuration, loaded from \`.env\` f
 > **Note:** Add more variables as per your requirement and environment setup.
 
 ---
+
+## Pre-requisite
+
+PostgreSQL running server with config provided in the `.env` file.
 
 ## Installation
 
