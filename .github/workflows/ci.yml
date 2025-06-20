@@ -1,6 +1,6 @@
 # This workflow will build a golang project
 
-name: Go CI/CD workflow
+name: Go CI workflow
 on:
   push:
     branches: [ "main" ]
