@@ -158,7 +158,7 @@ This project uses GitHub Actions workflows to automate build, test, lint, and re
   - Executes Lint Check 
   - Executes all Go tests
   - Builds the entire project
-  - Automatically creates a Git tag using [`anothrNick/github-tag-action@1.73.0`](https://github.com/anothrNick/github-tag-action)
+  - Automatically creates a Git tag (minor version bump) using [`anothrNick/github-tag-action@1.73.0`](https://github.com/anothrNick/github-tag-action)
 
 This workflow ensures that every change pushed to the main branch is validated through linting, building, and testing, helping maintain code quality and stability.
 
@@ -173,7 +173,8 @@ This workflow ensures that every change pushed to the main branch is validated t
   - Installs `golangci-lint` for code linting
   - Executes Lint Check
   - Runs tests to verify code correctness  
-  - Builds a Linux AMD64 binary named `booksApp`  
+  - Builds a Linux AMD64 binary named `booksApp-linux-amd64`
+  - Builds a MacOS AMD64 binary named `booksApp-macos-amd64`
   - Uploads the binary as a release asset using [softprops/action-gh-release](https://github.com/softprops/action-gh-release)  
 
 This workflow automates the packaging of this Go application binary and attaches it to your GitHub release, simplifying distribution for users.
@@ -183,7 +184,7 @@ This workflow automates the packaging of this Go application binary and attaches
 ### Notes
 
 - The workflows use [golangci-lint](https://golangci-lint.run/) for comprehensive static analysis.
-- The release workflow currently builds a Linux binary; you can extend this to build for other OS/architectures if needed.
+- The release workflow currently builds Linux and MacOS binaries; you can extend this to build for other OS/architectures if needed.
 - Make sure to create releases in your GitHub repository manually to trigger the release workflow.
 
 ---
