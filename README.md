@@ -150,9 +150,11 @@ This project uses GitHub Actions workflows to automate build, test, lint, and re
 - **Runs:**
   - Checks out the code  
   - Sets up Go 1.24.3 environment  
-  - Runs `golangci-lint` for code linting  
-  - Builds the entire project  
-  - Executes all Go tests  
+  - Installs `golangci-lint` for code linting  
+  - Executes Lint Check 
+  - Executes all Go tests
+  - Builds the entire project
+  - Automatically creates a Git tag using [`anothrNick/github-tag-action@1.73.0`](https://github.com/anothrNick/github-tag-action)
 
 This workflow ensures that every change pushed to the main branch is validated through linting, building, and testing, helping maintain code quality and stability.
 
@@ -163,7 +165,9 @@ This workflow ensures that every change pushed to the main branch is validated t
 - **Triggered on:** Creation of a GitHub Release (manual release event)  
 - **Runs:**
   - Checks out the code  
-  - Sets up Go 1.24.3 environment  
+  - Sets up Go 1.24.3 environment
+  - Installs `golangci-lint` for code linting
+  - Executes Lint Check
   - Runs tests to verify code correctness  
   - Builds a Linux AMD64 binary named `booksApp`  
   - Uploads the binary as a release asset using [softprops/action-gh-release](https://github.com/softprops/action-gh-release)  
