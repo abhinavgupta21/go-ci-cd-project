@@ -1,4 +1,4 @@
-# This workflow will release the golang project.
+# This workflow will be used when project is released manually.
 
 name: Release
 on:
@@ -24,9 +24,9 @@ jobs:
       run: go test -v ./...
     - name: Build binary
       run: |
-        GOOS=linux GOARCH=amd64 go build -o go-ci-cd-project
+        GOOS=linux GOARCH=amd64 go build -o booksApp
     - name: Upload Release Assets
       uses: softprops/action-gh-release@v2
       with:
         files: |
-          go-ci-cd-project
+          booksApp
