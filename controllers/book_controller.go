@@ -56,7 +56,7 @@ func (bc *BookController) GetBookByID(ctx *gin.Context) {
 	id := ctx.Param("id")
 	book, err := bc.getBookByID(id)
 	if err != nil {
-		respondJSON(ctx, http.StatusNotFound, "Book not found", nil)
+		respondJSON(ctx, http.StatusOK, "Book not found", nil)
 		return
 	}
 
@@ -67,7 +67,7 @@ func (bc *BookController) UpdateBook(ctx *gin.Context) {
 	id := ctx.Param("id")
 	book, err := bc.getBookByID(id)
 	if err != nil {
-		respondJSON(ctx, http.StatusNotFound, "Book not found", nil)
+		respondJSON(ctx, http.StatusOK, "Book not found", nil)
 		return
 	}
 
@@ -94,7 +94,7 @@ func (bc *BookController) DeleteBook(ctx *gin.Context) {
 	id := ctx.Param("id")
 	book, err := bc.getBookByID(id)
 	if err != nil {
-		respondJSON(ctx, http.StatusNotFound, "Book not found", nil)
+		respondJSON(ctx, http.StatusOK, "Book not found", nil)
 		return
 	}
 
