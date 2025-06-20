@@ -5,27 +5,42 @@ import (
 	"net/http/httptest"
 	"testing"
 
+	"github.com/abhinavgupta21/go-ci-cd-project/models" // Adjust import path if needed
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/require"
+	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
-// setupRouter creates a Gin router with nil mock DB
-func setupRouter(t *testing.T) *gin.Engine {
+// setupRouter initializes a Gin router and a real in-memory SQLite DB with migrations
+func setupRouter(t *testing.T) (*gin.Engine, *gorm.DB) {
 	gin.SetMode(gin.TestMode)
+
+	// Initialize in-memory SQLite DB for tests
+	db, err := gorm.Open(sqlite.Open(":memory:"), &gorm.Config{})
+	require.NoError(t, err, "failed to open in-memory sqlite DB")
+
+	// Migrate your model(s)
+	err = db.AutoMigrate(&models.Book{})
+	require.NoError(t, err, "failed to migrate Book model")
 
 	router := gin.Default()
 
 	RegisterRoutes(&Config{
 		Router: router,
-		DB:     &gorm.DB{},
+		DB:     db,
 	})
 
-	return router
+	return router, db
 }
 
 func TestRoutesAreRegistered(t *testing.T) {
-	router := setupRouter(t)
+	router, db := setupRouter(t)
+
+	db.Create(&models.Book{
+		Title:  "Test Book",
+		Author: "Test Author",
+	})
 
 	tests := []struct {
 		method string
@@ -49,7 +64,7 @@ func TestRoutesAreRegistered(t *testing.T) {
 }
 
 func TestRootRouteReturnsWelcomeMessage(t *testing.T) {
-	router := setupRouter(t)
+	router, _ := setupRouter(t)
 
 	w := httptest.NewRecorder()
 	req, _ := http.NewRequest("GET", "/", nil)
